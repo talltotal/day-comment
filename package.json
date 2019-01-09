@@ -1,0 +1,95 @@
+{
+  "name": "day-comment",
+  "displayName": "Day Comment",
+  "description": "Insert day plan and comment in md format.",
+  "version": "0.0.2",
+  "publisher": "talltotal",
+  "license": "SEE LICENSE IN LICENSE",
+  "engines": {
+    "vscode": "^1.30.0"
+  },
+  "keywords": [
+    "VSCode",
+    "extension",
+    "daytime",
+    "plan",
+    "comment"
+  ],
+  "categories": [
+    "Snippets",
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:extension.dayComment"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "extension.dayComment",
+        "title": "Day Comment"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "extension.dayComment",
+        "key": "ctrl+f5",
+        "mac": "cmd+f5",
+        "when": "editorTextFocus"
+      }
+    ],
+    "configuration": {
+      "title": "Day Comment configuration",
+      "properties": {
+        "day-comment.prefix": {
+          "type": "string",
+          "description": "The tag before moment",
+          "default": "######"
+        },
+        "day-comment.format": {
+          "type": "string",
+          "description": "Moment format",
+          "default": "YYYY/MM/DD ddd HH:mm"
+        },
+        "day-comment.list": {
+          "type": "array",
+          "description": "Daily record",
+          "default": [
+            "今日计划",
+            "今日记录",
+            "明日计划"
+          ]
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "postinstall": "node ./node_modules/vscode/bin/install",
+    "test": "npm run compile && node ./node_modules/vscode/bin/test"
+  },
+  "devDependencies": {
+    "typescript": "^3.1.4",
+    "vscode": "^1.1.25",
+    "tslint": "^5.8.0",
+    "@types/node": "^8.10.25",
+    "@types/mocha": "^2.2.42"
+  },
+  "dependencies": {
+    "moment": "^2.23.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/talltotal/day-comment.git"
+  },
+  "bugs": {
+    "url": "https://github.com/talltotal/day-comment/issues"
+  },
+  "galleryBanner": {
+    "color": "rgb(245, 244, 239)",
+    "theme": "light"
+  },
+  "icon": "icon.png"
+}
