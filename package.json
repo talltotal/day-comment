@@ -2,7 +2,7 @@
   "name": "day-comment",
   "displayName": "Day Comment",
   "description": "Insert day plan and comment in md format.",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "publisher": "talltotal",
   "license": "SEE LICENSE IN LICENSE",
   "engines": {
@@ -33,8 +33,8 @@
     "keybindings": [
       {
         "command": "extension.dayComment",
-        "key": "ctrl+f5",
-        "mac": "cmd+f5",
+        "key": "ctrl+5",
+        "mac": "cmd+5",
         "when": "editorTextFocus"
       }
     ],

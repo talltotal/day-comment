@@ -14,12 +14,13 @@ Daily record.
 
 ## Shortcut
 
-Default shortcut is `ctrl + f5`  / `cmd + f5`
+Default shortcut is `ctrl + 5`  / `cmd + 5`
 
 
 ## Example
 
 ```
+
 ###### 2019/01/09 Wed 22:20
 - 今日计划
 
