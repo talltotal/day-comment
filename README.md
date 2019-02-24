@@ -19,7 +19,7 @@ Default shortcut is `ctrl + 5`  / `cmd + 5`
 
 ## Example
 
-```
+```markdown
 
 ###### 2019/01/09 Wed 22:20
 - 今日计划
