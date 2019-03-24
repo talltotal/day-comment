@@ -36,6 +36,18 @@
         "key": "ctrl+5",
         "mac": "cmd+5",
         "when": "editorTextFocus"
+      },
+      {
+        "command": "extension.weekComment",
+        "key": "ctrl+4+,",
+        "mac": "cmd+4+,",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "extension.weekCommentNext",
+        "key": "ctrl+4+.",
+        "mac": "cmd+4+.",
+        "when": "editorTextFocus"
       }
     ],
     "configuration": {
@@ -68,6 +80,8 @@
     "compile": "tsc -p ./",
     "watch": "tsc -watch -p ./",
     "postinstall": "node ./node_modules/vscode/bin/install",
+    "tslint": "tslint -c tslint.json -p tsconfig.json",
+    "tslint:fix": "tslint -c tslint.json -p tsconfig.json --fix",
     "test": "npm run compile && node ./node_modules/vscode/bin/test"
   },
   "devDependencies": {
