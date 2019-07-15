@@ -2,7 +2,7 @@
   "name": "day-comment",
   "displayName": "Day Comment",
   "description": "Insert day plan and comment in md format.",
-  "version": "0.0.4",
+  "version": "0.0.6",
   "publisher": "talltotal",
   "license": "SEE LICENSE IN LICENSE",
   "engines": {
@@ -20,7 +20,8 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:DayComment.day",
+    "onCommand:extension.dayComment",
+    "onCommand:DayComment.today",
     "onCommand:DayComment.week",
     "onCommand:DayComment.nextWeek",
     "onCommand:DayComment.weekWithDay",
@@ -52,7 +53,7 @@
     ],
     "keybindings": [
       {
-        "command": "DayComment.action",
+        "command": "extension.dayComment",
         "key": "ctrl+5",
         "mac": "cmd+5",
         "when": "editorTextFocus"

@@ -10,6 +10,7 @@ enum Mode {
 }
 
 type Action = 'action'
+type NullStr = ''
 
 interface Contributions {
 	prefix: string
@@ -24,15 +25,16 @@ interface Contributions {
 
 type CommandFun = (contributions: Contributions) => string
 
-const actionMap: Map<Mode | Action, CommandFun> = new Map()
+const actionMap: Map<Mode | Action | NullStr, CommandFun> = new Map()
 	.set(Mode.today, getDayComment)
 	.set(Mode.week, getWeekComment(0, false))
 	.set(Mode.nextWeek, getWeekComment(1, false))
 	.set(Mode.weekWithDay, getWeekComment(0, true))
 	.set(Mode.nextWeekWithDay, getWeekComment(1, true))
 
-const commands: Map<Mode | Action, CommandFun> = new Map(actionMap)
+const commands: Map<Mode | Action | NullStr, CommandFun> = new Map(actionMap)
 	.set('action', action)
+	.set('', action)
 
 function action(contributions: Contributions): string {
 	const mode: Mode = contributions.mode
@@ -83,7 +85,7 @@ export function activate(context: vscode.ExtensionContext) {
 			continue
 		}
 
-		const command = vscode.commands.registerCommand(`DayComment.${key}`, () => {
+		const command = vscode.commands.registerCommand(key ? `DayComment.${key}` : 'extension.dayComment', () => {
 			const editor = vscode.window.activeTextEditor
 			if (editor) {
 				const contributions: Contributions = vscode.workspace.getConfiguration('day-comment') as any
