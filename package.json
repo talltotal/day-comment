@@ -2,7 +2,7 @@
   "name": "day-comment",
   "displayName": "Day Comment",
   "description": "Insert day plan and comment in md format.",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "publisher": "talltotal",
   "license": "SEE LICENSE IN LICENSE",
   "engines": {
