@@ -21,6 +21,7 @@ interface Contributions {
 	format: string
 	list: Array<string>
 	weekList: Array<string>
+	weekWithoutWeekend: Boolean
 }
 
 type CommandFun = (contributions: Contributions) => string
@@ -57,17 +58,21 @@ function getWeekComment(weekNum: number, showAllDays: boolean): CommandFun {
 			list,
 			weekList,
 			firstDay,
+			weekWithoutWeekend,
 		} = contributions
 		const firstD: number = firstDay % 7
 
 		const weekStartDay = moment().add('week', weekNum).set('weekday', firstD)
 		const dayStart: string = weekStartDay.format('YYYY/MM/DD')
 		const dayEnd: string = moment(weekStartDay).add('d', 6).format('YYYY/MM/DD')
-	
-		return `\n${weekPrefix} ${dayStart}${rangeSeparator}${dayEnd} \n- ${weekList.join('\n- ')}\n`
-			+ (showAllDays ? Array.from(Array(7)).map((_, index) => {
-				return `\n${prefix} ${moment(weekStartDay).add('d', index).format('YYYY/MM/DD ddd')}\n- ${list.join('\n- ')}`
-			}).join('\n') + '\n' : '')
+
+		const days = (showAllDays ? Array.from(Array(7)).map((_, index) => {
+			const day = moment(weekStartDay).add('d', index)
+			const notShowDay = weekWithoutWeekend && day.isoWeekday() > 5
+			return notShowDay ? '' : `\n${prefix} ${day.format('YYYY/MM/DD ddd')}\n- ${list.join('\n- ')}\n`
+		}).join('') : '')
+
+		return `\n${weekPrefix} ${dayStart}${rangeSeparator}${dayEnd} \n- ${weekList.join('\n- ')}\n${days}`
 	}
 }
 

@@ -108,6 +108,11 @@
             "本周计划",
             "本周总结"
           ]
+        },
+        "day-comment.weekWithoutWeekend": {
+          "type": "boolean",
+          "description": "Not list Sunday and Saturday when execute ’weekWithDay‘ or ‘nextWeekWithDay’",
+          "default": false
         }
       }
     }

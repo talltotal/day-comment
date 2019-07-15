@@ -9,15 +9,22 @@
 - `"list": ["学习", "产出", "想法", "计划"]`
     - Daily record.
 - `"weekPrefix": "#####"`
-    - The tag before week.
+    - The tag before week range.
 - `"mode": "today"`
     - Shortcuts action (today, week, nextWeek, weekWithDay, nextWeekWithDay).
+    - today => `DayComment: Today`
+    - week => `DayComment: Week`
+    - nextWeek => `DayComment: Next Week`
+    - weekWithDay => `DayComment: Week WithDay`
+    - nextWeekWithDay => `DayComment: Next Week WithDay`
 - `"firstDay": 0`
     - First day of the week (0: Sunday, 1: Monday, etc).
 - `"rangeSeparator": " - "`
     - Range separator between week start and week end.
 - `"weekList": ["本周计划", "本周总结"]`
     - Week record.
+- `"weekWithoutWeekend": false`
+    - Not list Sunday and Saturday when execute ’weekWithDay‘ or ‘nextWeekWithDay’.
 
 ## Shortcut
 
