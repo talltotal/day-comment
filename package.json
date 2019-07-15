@@ -20,33 +20,41 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:extension.dayComment"
+    "onCommand:DayComment.day",
+    "onCommand:DayComment.week",
+    "onCommand:DayComment.nextWeek",
+    "onCommand:DayComment.weekWithDay",
+    "onCommand:DayComment.nextWeekWithDay"
   ],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "extension.dayComment",
-        "title": "Day Comment"
+        "command": "DayComment.today",
+        "title": "DayComment: Today"
+      },
+      {
+        "command": "DayComment.week",
+        "title": "DayComment: Week"
+      },
+      {
+        "command": "DayComment.nextWeek",
+        "title": "DayComment: Next Week"
+      },
+      {
+        "command": "DayComment.weekWithDay",
+        "title": "DayComment: Week WithDay"
+      },
+      {
+        "command": "DayComment.nextWeekWithDay",
+        "title": "DayComment: Next Week WithDay"
       }
     ],
     "keybindings": [
       {
-        "command": "extension.dayComment",
+        "command": "DayComment.action",
         "key": "ctrl+5",
         "mac": "cmd+5",
-        "when": "editorTextFocus"
-      },
-      {
-        "command": "extension.weekComment",
-        "key": "ctrl+4+,",
-        "mac": "cmd+4+,",
-        "when": "editorTextFocus"
-      },
-      {
-        "command": "extension.weekCommentNext",
-        "key": "ctrl+4+.",
-        "mac": "cmd+4+.",
         "when": "editorTextFocus"
       }
     ],
@@ -70,6 +78,34 @@
             "今日计划",
             "今日记录",
             "明日计划"
+          ]
+        },
+        "day-comment.weekPrefix": {
+          "type": "string",
+          "description": "The tag before week",
+          "default": "#####"
+        },
+        "day-comment.mode": {
+          "type": "string",
+          "description": "Shortcuts action (today, week, nextWeek, weekWithDay, nextWeekWithDay)",
+          "default": "today"
+        },
+        "day-comment.firstDay": {
+          "type": "number",
+          "description": "First day of the week (0: Sunday, 1: Monday, etc)",
+          "default": 0
+        },
+        "day-comment.rangeSeparator": {
+          "type": "string",
+          "description": "Range separator between week start and week end",
+          "default": " - "
+        },
+        "day-comment.weekList": {
+          "type": "array",
+          "description": "Week record",
+          "default": [
+            "本周计划",
+            "本周总结"
           ]
         }
       }
