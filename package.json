@@ -1,7 +1,7 @@
 {
   "name": "day-comment",
   "displayName": "Day Comment",
-  "description": "Insert day plan and comment in md format.",
+  "description": "Insert day/week record template in MD format.",
   "version": "0.0.6",
   "publisher": "talltotal",
   "license": "SEE LICENSE IN LICENSE",
@@ -12,8 +12,11 @@
     "VSCode",
     "extension",
     "daytime",
+    "week",
     "plan",
-    "comment"
+    "record",
+    "comment",
+    "markdown"
   ],
   "categories": [
     "Snippets",

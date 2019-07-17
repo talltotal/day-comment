@@ -1,4 +1,5 @@
 # Day Comment
+> Insert day/week record template in MD format.
 
 ## Configuration
 
